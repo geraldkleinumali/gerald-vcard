@@ -3,154 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Certificate Verification</title>
+<title>Gerald Umali</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #eef2f7;
+  background: linear-gradient(135deg, #1f3c88, #2d6cdf);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.header {
-  background: linear-gradient(90deg, #1f3c88, #2d6cdf);
-  color: white;
-  padding: 12px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.search-box {
-  background: #3f63c7;
-  padding: 15px;
-  text-align: center;
-}
-
-.search-box input {
-  width: 60%;
-  max-width: 400px;
-  padding: 10px;
-  border: none;
-}
-
-.search-box button {
-  width: 30%;
-  max-width: 150px;
-  padding: 10px;
-  background: #00c853;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.container {
-  padding: 15px;
-  max-width: 900px;
-  margin: auto;
-}
-
-.loading {
-  display: none;
-  text-align: center;
-  margin-top: 20px;
-  color: gray;
-}
-
+/* CARD */
 .card {
   background: white;
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 15px;
-  display: none;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.5s;
+  width: 320px;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease;
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
-.title {
-  font-weight: bold;
+/* PROFILE */
+.profile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2d6cdf;
   margin-bottom: 10px;
 }
 
-.small {
-  font-size: 13px;
+/* TEXT */
+.name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 14px;
   color: gray;
+  margin-bottom: 15px;
 }
 
-.cert-img {
-  width: 60%;
-  max-width: 500px;
+/* BUTTONS */
+.btn {
   display: block;
-  margin: 20px auto;
-  border-radius: 8px;
+  text-decoration: none;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
 }
 
-.chat {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #00c853;
-  color: white;
-  padding: 12px 15px;
-  border-radius: 30px;
+.phone { background: #00c853; }
+.email { background: #ff6d00; }
+.fb { background: #1877f2; }
+.download { background: #6a1b9a; }
+
+.btn:hover {
+  opacity: 0.9;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-  📘 Teacher Record
-</div>
+<div class="card">
 
-<div class="search-box">
-  <input type="text" value="TR2427590628">
-  <button onclick="search()">Search</button>
-</div>
+  <!-- PALITAN MO IMAGE -->
+  <img src="profile.jpg" class="profile">
 
-<div class="container">
+  <div class="name">Gerald B. Umali</div>
+  <div class="title">Graphic Artist | Developer</div>
 
-  <div class="loading" id="loading">
-    Verifying certificate...
-  </div>
+  <!-- ACTION BUTTONS -->
+  <a href="tel:+639XXXXXXXXX" class="btn phone">📞 Call Me</a>
+  <a href="mailto:your@email.com" class="btn email">📧 Email Me</a>
+  <a href="https://facebook.com/yourprofile" class="btn fb">👍 Facebook</a>
 
-  <div class="card" id="result">
-    <div class="title">120 hour Professional TEFL</div>
-    <div class="small">TeacherRecord, accredited course provider</div>
-
-    <p><b>Teacher Name:</b> KEN CYRIL BACTOL SUMALINOG</p>
-    <p><b>Date of Issue:</b> Sep. 2024</p>
-    <p><b>Certificate Number:</b> TR2427590628</p>
-
-    <img src="images/cert.jpg" class="cert-img">
-  </div>
+  <!-- DOWNLOAD CONTACT -->
+  <a href="gerald.vcf" class="btn download">⬇️ Save Contact</a>
 
 </div>
-
-<div class="chat">❓ Have a question?</div>
-
-<script>
-function search() {
-  document.getElementById("loading").style.display = "block";
-
-  setTimeout(() => {
-    document.getElementById("loading").style.display = "none";
-
-    let card = document.getElementById("result");
-    card.style.display = "block";
-
-    setTimeout(() => {
-      card.classList.add("show");
-    }, 100);
-
-  }, 2000);
-}
-</script>
 
 </body>
 </html>
